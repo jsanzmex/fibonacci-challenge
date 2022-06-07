@@ -4,7 +4,6 @@ set -e
 
 echo "Environment: $RAILS_ENV"
 echo "Current directory: `pwd`"
-echo `ls -lta`
 
 # install missing gems
 bundle check || bundle install --jobs 20 --retry 5

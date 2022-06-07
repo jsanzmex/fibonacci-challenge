@@ -11,7 +11,7 @@ New API-only / No-Active-Record rails project.
 
 ### Stack
 Ruby	3.0.4
-Rails	6.0.5
+Rails	6.1.6
 Docker	20.10.10
 
 ## Client
@@ -27,3 +27,14 @@ Docker	20.10.10
 
 Using Vite tooling, instead of Webpack, because of its many benefits: 1) technology agnostic, 2) performance advantages, 3) code splitting, 4) pre-package building. [Vite](https://vitejs.dev/guide/why.html) 
 
+## Commands
+
+Open Fibonacci app shell
+```bash
+docker-compose exec fibonacci_app sh
+```
+
+Open React client shell
+```bash
+docker-compose exec client sh
+```
