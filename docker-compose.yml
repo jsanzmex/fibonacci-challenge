@@ -1,0 +1,47 @@
+version: '3.8'
+
+volumes:
+  node_modules:
+  gem_cache:
+  shared_data:
+
+services:
+
+  fibonacci_app:
+    build:
+      context: ./services/fibonacci_app
+      dockerfile: Dockerfile
+    env_file: ./services/fibonacci_app/.env.development
+    volumes:
+      # no copying source code to the Docker container
+      - ./services/fibonacci_app:/var/app
+      - shared_data:/var/shared
+      - gem_cache:/usr/local/bundle/gems
+    ports:
+      - 3001:3000
+    stdin_open: true
+    tty: true
+    entrypoint: dev-entrypoint.sh
+    command: ['rails', 'server', '-p', '3000', '-b', '0.0.0.0']
+    environment:
+      RAILS_ENV: development
+
+  client:
+    stdin_open: true
+    build:
+      context: ./services/client
+      dockerfile: Dockerfile
+    env_file: ./services/client/.env.development
+    volumes:
+      - ./services/client:/usr/src/app
+      # This is a named volume for the 'node_modules' directory.
+      # Rather than having 'node_modules' mounted to the host, which can lead to package discrepancies and permissions conflicts in development,
+      # this volume will ensure that the packages in this directory are persisted and reflect the current state of the project.
+      # But beware! if you modify the project’s Node dependencies, you will need to remove and recreate this volume.
+      - node_modules:/usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - fibonacci_app
