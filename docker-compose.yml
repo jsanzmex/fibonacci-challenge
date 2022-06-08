@@ -26,6 +26,23 @@ services:
     environment:
       RAILS_ENV: development
 
+  fibonacci_test:
+    image: fibonacci-challenge_fibonacci_app
+    env_file: ./services/fibonacci_app/.env.test
+    volumes:
+      # no copying source code to the Docker container, mounting a bound volume instead
+      - ./services/fibonacci_app:/var/app
+      - shared_data:/var/shared
+      - gem_cache:/usr/local/bundle/gems
+    ports:
+      - 3002:3000
+    stdin_open: true
+    tty: true
+    entrypoint: test-entrypoint.sh
+    command: ["rails", "-v"]
+    environment:
+      RAILS_ENV: test
+
   client:
     stdin_open: true
     build:

@@ -7,14 +7,22 @@ This challenge is separated in two sections, backend, and frontend, each section
 
 ## Quickstart
 
-To start the whole solution:
+### To start the whole solution:
 ```bash
 docker-compose up --build
 ```
 
-Then browse to `http://localhost:3000`
+Wait until _Vite_ and _Rails_ are listening.
 
-To stop and tear down containers and volumes:
+Then browse to: `http://localhost:3000`
+
+### To run backend's test suite.
+```bash
+docker-compose run --rm fibonacci_test bundle exec rspec
+```
+⚠️**Important Note**: This won't work if you haven't executed `docker-compose up --build`.
+
+### To stop and tear down containers and volumes:
 ```bash
 docker-compose down -v
 ```
