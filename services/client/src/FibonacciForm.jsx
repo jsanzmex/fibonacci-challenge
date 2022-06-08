@@ -17,8 +17,9 @@ class FibonacciForm extends Component {
   handleSubmit(event) {
     console.log('A value was submitted: ' + this.state.value);
     const parsed = parseInt(this.state.value, 10);
-    this.setState({positiveResponseReceived: true});
-    this.getFibonacci(parsed);
+    if (!isNaN(parsed)){
+      this.getFibonacci(parsed);
+    }
     event.preventDefault();
   }
 
@@ -45,7 +46,11 @@ class FibonacciForm extends Component {
                   event.preventDefault();
                 }
               }}
-              type="text" value={this.state.value} onChange={this.handleChange} />
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+              placeholder="Enter a number"
+            />
             <input type="submit" value="Calculate" />
           </form>
           {result}

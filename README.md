@@ -5,6 +5,20 @@
 The Fibonacci sequence is a well known algorithm, the challenge is to build a web application, a fibonacci calculator. The input for the calculator is the position of the fibonacci sequence, the output should be the value of the sequence at a given position.
 This challenge is separated in two sections, backend, and frontend, each section has its own acceptance criteria and requirements, please read the instructions carefully. 
 
+## Quickstart
+
+To start the whole solution:
+```bash
+docker-compose up --build
+```
+
+Then browse to `http://localhost:3000`
+
+To stop and tear down containers and volumes:
+```bash
+docker-compose down -v
+```
+
 ## Backend
 
 New API-only / No-Active-Record rails project.
@@ -29,12 +43,12 @@ Using Vite tooling, instead of Webpack, because of its many benefits: 1) technol
 
 ## Commands
 
-Open Fibonacci app shell
+Open a Rails (fibonacci_app) shell
 ```bash
 docker-compose exec fibonacci_app sh
 ```
 
-Open React client shell
+Open React (client) shell
 ```bash
 docker-compose exec client sh
 ```
