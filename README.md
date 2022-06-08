@@ -29,27 +29,27 @@ docker-compose down -v
 
 ## Backend
 
-New API-only / No-Active-Record rails project.
+**API-only** + **No-Active-Record** rails project.
 
 ### Stack
-Ruby	3.0.4
-Rails	6.1.6
-Docker	20.10.10
+- Ruby	3.0.4
+- Rails	6.1.6
+- Docker	20.10.10
 
 ## Client
 
-New Create-React-App app.
+**Vite** app.
 
 ### Stack
-Node	18.3.0
-NPM		8.12.1
-Vite	2.9.4
-React	18.1.0
-Docker	20.10.10
+- Node	18.3.0
+- NPM		8.12.1
+- Vite	2.9.4
+- React	18.1.0
+- Docker	20.10.10
 
 Using Vite tooling, instead of Webpack, because of its many benefits: 1) technology agnostic, 2) performance advantages, 3) code splitting, 4) pre-package building. [Vite](https://vitejs.dev/guide/why.html) 
 
-## Commands
+## Additional Commands
 
 Open a Rails (fibonacci_app) shell
 ```bash
