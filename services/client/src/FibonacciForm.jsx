@@ -39,7 +39,13 @@ class FibonacciForm extends Component {
         <div className="App">
           <p>Calculate Fibonacci!</p>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+              type="text" value={this.state.value} onChange={this.handleChange} />
             <input type="submit" value="Calculate" />
           </form>
           {result}
