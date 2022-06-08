@@ -5,7 +5,7 @@ class FibonacciController < ApplicationController
 	end
 
 	def show
-		render json: {"value": ::Fibonacci[params[:position]]}
+		render json: {"value": ::Fibonacci[params[:position].to_i]}
 	end
 
 end

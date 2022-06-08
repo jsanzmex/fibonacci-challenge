@@ -1,4 +1,4 @@
-# Code challenge: Fibonnaci Backend - Julio Sanchez
+# Code challenge: Fibonnaci Frontend & Backend - Julio Sanchez
 
 ## Description
 
